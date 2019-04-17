@@ -21,6 +21,11 @@ const OrderSchema = new Schema({
         type: String,
         default: '0',
         required: true
+    },
+    description: {
+        type: String,
+        default: 'Description',
+        required: true
     }
 });
 
