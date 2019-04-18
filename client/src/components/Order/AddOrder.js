@@ -44,6 +44,7 @@ export class AddOrder extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         addOrder(this.state.order);
+        //toggle modal
         this.toggle();
     }
 

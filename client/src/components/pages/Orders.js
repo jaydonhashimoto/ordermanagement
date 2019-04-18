@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     Container, Row, Col,
-    ListGroup
+    ListGroup, Button
 } from 'reactstrap';
 
 import OrderContainer from '../../components/Order/OrderContainer';
@@ -10,29 +10,22 @@ import { getOrders } from '../../api/OrderAPI';
 
 export class Orders extends Component {
     state = {
-        isMounted: false,
         orders: [],
         msg: ''
     }
 
     /**
-     * get all orders and set them to state
+     * retrive orders and set state
      */
-    componentDidMount() {
+    retrieveOrders = () => {
         //api get all orders and set state
         getOrders().then((data) => this.setState({ orders: data }));
+    }
+
+    componentDidMount() {
+        this.retrieveOrders();
         this.setMsg();
     }
-
-    componentWillUnmount() {
-        this.setState({ isMounted: false });
-    }
-
-    // componentDidUpdate() {
-
-    //     //api get all orders and set state
-    //     getOrders().then((data) => this.setState({ orders: data }));
-    // }
 
     /**
      * show if no orders are available
@@ -52,8 +45,13 @@ export class Orders extends Component {
                         <Col><h1 style={headerStyle}>Orders</h1></Col>
                     </Row><br />
                     <Row>
-                        <Col>
+                        <Col sm="10" xs="8">
                             <AddOrder />
+                        </Col>
+                        <Col sm="2" xs="4">
+                            <Button color="primary" onClick={this.retrieveOrders}>
+                                Refresh
+                            </Button>
                         </Col>
                     </Row>
                     <Row>
