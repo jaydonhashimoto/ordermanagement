@@ -68,7 +68,7 @@ export class Order extends Component {
         deleteOrder(id);
         this.toggle();
         //redirect to orders screen
-        this.setState({deleted: true});
+        this.setState({ deleted: true });
     }
 
     render() {
@@ -82,8 +82,8 @@ export class Order extends Component {
             minute: '2-digit',
             second: '2-digit'
         }).format(d);
-        if(this.state.deleted) {
-            return <Redirect to='/'/>
+        if (this.state.deleted) {
+            return <Redirect to='/' />
         }
         return (
             <div>
@@ -105,7 +105,7 @@ export class Order extends Component {
                                     <p>{formattedDate}</p>
                                 </FormGroup>
                             </Col>
-                        </Row>
+                        </Row><hr />
                         <Row>
                             <Col>
                                 <FormGroup>
@@ -169,7 +169,7 @@ export class Order extends Component {
                                     />
                                 </FormGroup>
                             </Col>
-                        </Row>
+                        </Row><hr/>
                         <Row>
                             <Col>
                                 <Link to="/">

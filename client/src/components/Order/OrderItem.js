@@ -16,10 +16,11 @@ export class OrderItem extends Component {
                     }}
                     style={linkStyle}
                 >
-                    <ListGroupItem>
-                        {this.props.order.name} - {this.props.order._id}
+                    <ListGroupItem style={itemStyle}>
+                        <p><b>Name:</b> {this.props.order.name}</p>
+                        <p><b>ID:</b> {this.props.order._id}</p>
                     </ListGroupItem>
-                </Link>
+                </Link><br />
             </div>
         )
     }
@@ -29,6 +30,12 @@ const linkStyle = {
     textDecoration: 'none',
     color: 'black',
     textAlign: 'center'
+}
+
+const itemStyle = {
+    border: '1px solid black',
+    boxShadow: '5px 10px #888888',
+    background: 'rgba(104,104,104,0.1)',
 }
 
 export default OrderItem
